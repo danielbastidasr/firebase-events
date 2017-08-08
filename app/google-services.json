@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "417023289740",
+    "firebase_url": "https://erasmusvipvalencia-2e126.firebaseio.com",
+    "project_id": "erasmusvipvalencia-2e126",
+    "storage_bucket": "erasmusvipvalencia-2e126.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417023289740:android:16b2debb804baa5b",
+        "android_client_info": {
+          "package_name": "uk.co.xakra.erasmusvipvalencia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417023289740-kc862fhtgin14jfafg5ka0ieouc3oeb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP2SXN18xdFIv8Yy7BnThRdChXhhbq5-8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
