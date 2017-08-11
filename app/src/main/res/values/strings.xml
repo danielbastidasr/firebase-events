@@ -19,5 +19,7 @@
     </string>
 
     <string name="emai_password_incorrect">Mail already in Use and password Incorrect!</string>
+    <string name="title_activity_future_events_detail">FutureEventsDetailActivity</string>
+    <string name="title_activity_my_event_detail">MyEventDetailActivity</string>
 
 </resources>

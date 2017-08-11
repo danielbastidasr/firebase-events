@@ -39,6 +39,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.co.xakra.erasmusvipvalencia.Data.Services.DataService;
 import uk.co.xakra.erasmusvipvalencia.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -49,11 +50,6 @@ import static android.Manifest.permission.READ_CONTACTS;
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
 
-    //FIREBASE vars
-    private static FirebaseAuth mAuth;
-
-
-    private Boolean isRegistering;
     /**
      * Id to identity READ_CONTACTS permission request.
      */
@@ -74,11 +70,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
+    //DataService
+
+    private DataService dataService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Initialize Firebase
-        mAuth = FirebaseAuth.getInstance();
+
+        //Initialize DataService
+        dataService = DataService.getInstance();
 
         setContentView(R.layout.activity_login);
         // Set up the login form.
@@ -333,7 +334,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             // WE TRY TO CREATE AN USER WITH THE CREDENTIALS
 
-            mAuth.createUserWithEmailAndPassword(mEmail, mPassword)
+            dataService.getmAuth().createUserWithEmailAndPassword(mEmail, mPassword)
                     .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -341,10 +342,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             if (!task.isSuccessful()) {
                                 // IN THIS CASE WE COULDN'T CREATE THE USER  -> ALREADY EXIST, NOW TRY TO LOGIN
 
-                                mAuth.signInWithEmailAndPassword(mEmail, mPassword).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                                dataService.getmAuth().signInWithEmailAndPassword(mEmail, mPassword).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
-                                        showProgress(false);
                                         if (!task.isSuccessful()) {
 
                                             // IN THIS CASE THE PASSWORD IS INCORRECT
@@ -352,7 +352,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                                     Toast.LENGTH_LONG).show();
 
                                             clearInformation();
+
+                                            showProgress(false);
                                         } else {
+
+                                            DataService.getInstance().initializeDataBase(dataService.getmAuth().getCurrentUser().getUid());
+                                            showProgress(false);
                                             loginwithemail();
 
                                         }
@@ -361,6 +366,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                 });
 
                             } else {
+
+                                DataService.getInstance().initializeDataBase(dataService.getmAuth().getCurrentUser().getUid());
                                 showProgress(false);
                                 loginwithemail();
 
@@ -386,6 +393,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         Intent mainActivity = new Intent(this,MainActivity.class);
         startActivity(mainActivity);
 
+        this.finish();
 
     }
 
