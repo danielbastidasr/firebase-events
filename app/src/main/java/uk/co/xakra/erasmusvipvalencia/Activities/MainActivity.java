@@ -19,7 +19,7 @@ import uk.co.xakra.erasmusvipvalencia.MainFragments.MyEvents;
 import uk.co.xakra.erasmusvipvalencia.MainFragments.MyProfile;
 import uk.co.xakra.erasmusvipvalencia.R;
 
-public class MainActivity extends AppCompatActivity implements FutureEvents.OnFragmentInteractionListener, MyEvents.OnFragmentInteractionListener, MyProfile.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements FutureEvents.OnFragmentInteractionListener, MyEvents.OnFragmentInteractionListener {
 
     //TicketHolder
     private static MainActivity mainActivity;

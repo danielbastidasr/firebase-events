@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/gradient_background"
     tools:context="uk.co.xakra.erasmusvipvalencia.Activities.LoginActivity">
 
     <!-- Login progress -->
@@ -38,10 +39,14 @@
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#fff"
+                    android:textColorLink="#fff"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:singleLine="true" />
+                    android:textColor="#fff"
+
+
+                    />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -53,6 +58,9 @@
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColorHint="#fff"
+                    android:textColorLink="#fff"
+                    android:textColor="#fff"
                     android:hint="@string/prompt_password"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
@@ -70,8 +78,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
+                android:textColor="#fff"
+                android:background="#34A853"
                 android:textStyle="bold" />
 
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:textAlignment="center"
+
+                />
+            
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/logoponer"
+                />
+            
         </LinearLayout>
+
+
     </ScrollView>
 </LinearLayout>

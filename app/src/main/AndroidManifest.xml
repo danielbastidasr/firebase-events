@@ -16,11 +16,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logoponer"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logoponer"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+        android:value="@string/facebook_app_id"/>
+        <data android:scheme="@string/fb_login_protocol_scheme" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="uk.co.xakra.erasmusvipvalencia.fileprovider"
@@ -31,17 +36,27 @@
                 android:resource="@xml/files" />
         </provider>
 
+
+
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
+
         <activity
             android:name=".Activities.MainActivity"
             android:label="@string/app_name" />
         <activity
             android:name=".Activities.LoginActivity"
-            android:label="@string/title_activity_login">
+            android:label="@string/title_activity_login"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".Activities.FutureEventsDetailActivity"

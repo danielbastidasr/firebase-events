@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:id="@+id/futureEventsScreen"
+    android:background="@drawable/gradient_background"
     tools:context="uk.co.xakra.erasmusvipvalencia.Activities.FutureEventsDetailActivity">
 
     <android.support.design.widget.AppBarLayout

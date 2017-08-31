@@ -14,7 +14,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="uk.co.xakra.erasmusvipvalencia.Activities.MyEventDetailActivity"
     tools:showIn="@layout/activity_my_event_detail"
-    android:background="#656ce6">
+    android:background="@drawable/gradient_background">
 
 
 <LinearLayout
