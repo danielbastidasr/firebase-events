@@ -7,8 +7,8 @@
 
 
     <!-- Strings related to login -->
-    <string name="facebook_app_id">220019481771089</string>
-    <string name="fb_login_protocol_scheme">fb220019481771089</string>
+    <string name="facebook_app_id">Put your Facebook App ID</string>
+    <string name="fb_login_protocol_scheme">fb"Facebook App ID"</string>
 
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
